@@ -17,6 +17,30 @@
 //       '### '
 //       '####'
 
+// #1 Base case
+
+function steps(n, row = 0, result = '') {
+    if (n === row) {
+        return;
+    }
+
+    if (n === result.length) {
+        console.log(result);
+        return steps(n, row + 1);
+    }
+
+    if (result.length <= row) {
+        result += '#';
+    } else {
+        result += ' ';
+    }
+
+    steps(n, row, result);
+}
+
+steps(15);
+
+
 
 // n = 3
 // #@@  | row0-col0 = #; row0-col1= @; row0-col2= @
@@ -24,19 +48,19 @@
 // ###  | row2-col0 = #; row2-col1= #; row2-col2= #
 
 
-function steps(n) {
-    for (let row = 0; row < n; row++) {
-        let result = '';
-        for (let col = 0; col < n; col++) {
-            if (row >= col) {
-                result += '#';
-            } else {
-                result += ' ';
-            }
-        }
-        console.log(result);
-    }
-}
-steps(3);
+// function steps(n) {
+//     for (let row = 0; row < n; row++) {
+//         let result = '';
+//         for (let col = 0; col < n; col++) {
+//             if (row >= col) {
+//                 result += '#';
+//             } else {
+//                 result += ' ';
+//             }
+//         }
+//         console.log(result);
+//     }
+// }
+// steps(3);
 
 module.exports = steps;
